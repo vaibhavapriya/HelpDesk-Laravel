@@ -1,3 +1,3 @@
-<x-client>
+<x-layouts.app.client>
     <div>Home Page</div>
-</x-client>
+</x-layouts.app.client>

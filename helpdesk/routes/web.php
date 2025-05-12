@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\TicketController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('tickets',TicketController::class);
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
 //     ->name('dashboard');
