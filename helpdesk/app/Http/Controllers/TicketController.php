@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
 use App\Models\Ticket;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
@@ -13,7 +15,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('ticket.indexTicket');
+        $tickets = Ticket::with('requester')->get(); // eager load the requester
+        return view('ticket.indexTicket', compact('tickets'));
     }
 
     /**
@@ -21,7 +24,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('ticket.createTicket');
     }
 
     /**
@@ -29,7 +32,18 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        //
+        $ticket = new Ticket();
+        $ticket->title = $request->title;
+        $ticket->description = $request->description;
+        $ticket->priority = $request->priority;
+        $ticket->filetype = $request->filetype;
+        $ticket->filelink = $request->filelink;
+        $ticket->status = 'open';  // Default status
+        $ticket->department = $request->department;
+        $ticket->requester_id = auth()->id();  // Assuming the user is logged in
+        $ticket->save();
+
+        return redirect()->route('tickets.index')->with('success', 'Ticket created successfully');
     }
 
     /**
@@ -37,7 +51,7 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        return view('ticket.showTicket');
+        return view('ticket.showTicket', compact('ticket'));
     }
 
     /**
@@ -45,7 +59,7 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket)
     {
-        return view('ticket.editTicket');
+        return view('ticket.editTicket', compact('ticket'));
     }
 
     /**
@@ -53,7 +67,8 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        //
+        $ticket->update($request->all());
+        return redirect()->route('tickets.index')->with('success', 'Ticket updated successfully');
     }
 
     /**
@@ -61,6 +76,7 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->delete();
+        return redirect()->route('tickets.index')->with('success', 'Ticket deleted successfully');
     }
 }

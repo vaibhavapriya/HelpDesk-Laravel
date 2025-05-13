@@ -46,7 +46,8 @@
 
   <main class="container py-5">
     <div class="container">
-      {{$slot}}
+      
+       @yield('content')
     </div>
   </main>
   <footer >

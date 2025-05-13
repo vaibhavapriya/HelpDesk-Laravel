@@ -1,3 +1,2 @@
-<x-layouts.app.client>
-    <div>Home Page</div>
-</x-layouts.app.client>
+@extends('components.layouts.app.client')
+@section('content','Home Page')

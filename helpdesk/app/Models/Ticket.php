@@ -14,6 +14,8 @@ class Ticket extends Model
         'title', 'description', 'priority', 'filetype', 'filelink',
         'status', 'department', 'requester_id', 'last_reply', 'last_replier',
     ];
+    //also can be done by 
+    //protected $protected=[];
     
 
     // public function user()
