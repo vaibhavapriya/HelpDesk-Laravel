@@ -36,11 +36,23 @@ class TicketController extends Controller
         $ticket->title = $request->title;
         $ticket->description = $request->description;
         $ticket->priority = $request->priority;
-        $ticket->filetype = $request->filetype;
-        $ticket->filelink = $request->filelink;
         $ticket->status = 'open';  // Default status
         $ticket->department = $request->department;
         $ticket->requester_id = auth()->id();  // Assuming the user is logged in
+
+
+        // Validate the request
+        $request->validate([
+            'attachment' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        // Handle the uploaded file
+        if ($request->hasFile('attachment')) {
+            $image = $request->file('attachment');
+            $filename = time().'_'.$image->getClientOriginalName();
+            $path = $image->storeAs('uploads', $filename, 'public');
+        }
+
         $ticket->save();
 
         return redirect()->route('tickets.index')->with('success', 'Ticket created successfully');
