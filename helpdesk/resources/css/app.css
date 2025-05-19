@@ -9,17 +9,16 @@ main {
     box-shadow: 0 0 10px rgba(0,0,0,0.15);
     transition: 0.3s;
   }
-@import 'tailwindcss';
-@import '../../vendor/livewire/flux/dist/flux.css';
+/* @import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css'; */
 
-@source '../views';
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
-@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+/* @source '../views'; */
+/* @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php'; */
 
-@custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+/* @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     --color-zinc-50: #fafafa;
@@ -37,17 +36,17 @@ main {
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
-}
+} */
 
-@layer theme {
+/* @layer theme {
     .dark {
         --color-accent: var(--color-white);
         --color-accent-content: var(--color-white);
         --color-accent-foreground: var(--color-neutral-800);
     }
-}
+} */
 
-@layer base {
+/* @layer base {
 
     *,
     ::after,
@@ -56,21 +55,21 @@ main {
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
     }
-}
+} */
 
-[data-flux-field]:not(ui-radio, ui-checkbox) {
+/* [data-flux-field]:not(ui-radio, ui-checkbox) {
     @apply grid gap-2;
-}
+} */
 
-[data-flux-label] {
+/* [data-flux-label] {
     @apply  !mb-0 !leading-tight;
-}
+} */
 
-input:focus[data-flux-control],
+/* input:focus[data-flux-control],
 textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
-}
+} */
 
 /* \[:where(&)\]:size-4 {
     @apply size-4;
