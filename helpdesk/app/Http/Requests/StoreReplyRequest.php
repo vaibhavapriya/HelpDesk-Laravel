@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTicketRequest extends FormRequest
+class StoreReplyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -12,7 +12,6 @@ class UpdateTicketRequest extends FormRequest
     public function authorize(): bool
     {
         return false;
-        //return true; // Allow all users for now, or implement logic
     }
 
     /**
@@ -23,11 +22,7 @@ class UpdateTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'priority' => 'required|in:low,medium,high',
-            'department' => 'required|string|max:255',
-            'filelink' => 'nullable|url',
+            //
         ];
     }
 }

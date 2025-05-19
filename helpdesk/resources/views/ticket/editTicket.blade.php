@@ -1,5 +1,14 @@
 @extends('components.layouts.app.client')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <h1>Edit Ticket</h1>
         <form action="{{ route('tickets.update', $ticket->id) }}" method="POST">

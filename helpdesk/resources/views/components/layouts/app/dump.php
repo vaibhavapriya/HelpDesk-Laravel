@@ -62,4 +62,14 @@
     </div>
   </nav>
 
+<!-- registeration -->
+https://epicbootstrap.com/snippets/registration
 
+<!-- user profile  -->
+https://bbbootstrap.com/snippets/request-demo-form-validation-12274818
+
+<!-- admin ticket creation -->
+https://bbbootstrap.com/snippets/bootstrap-doctors-appointment-form-30336544
+
+<!-- forgot password -->
+https://bootsnipp.com/snippets/XqM6W

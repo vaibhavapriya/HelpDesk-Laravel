@@ -7,7 +7,7 @@ use App\Http\Controllers\TicketController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::view('faq','faq');
 Route::resource('tickets',TicketController::class);
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
