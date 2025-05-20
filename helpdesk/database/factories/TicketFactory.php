@@ -15,20 +15,21 @@ class TicketFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
     public function definition(): array
     {
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'priority' => $this->faker->randomElement(['low', 'medium', 'high']),
-            'filetype' => $this->faker->fileExtension,
-            'filelink' => $this->faker->url,
+            'filetype' => $this->faker->optional()->randomElement(['pdf', 'jpg', 'png']),
+            'filelink' => $this->faker->optional()->url,
             'status' => $this->faker->randomElement(['open', 'closed']),
             'department' => $this->faker->word,
             // 'requester' => $this->faker->name,'user_id' => User::factory(), 
             'requester_id' => User::factory(),
-            'last_reply' => $this->faker->dateTimeBetween('-1 week', 'now'),
-            'last_replier' => $this->faker->name,
+            //'last_reply' => $this->faker->dateTimeBetween('-1 week', 'now'),
+            //'last_replier' => $this->faker->optional()->dateTime
         ];
     }
 }
