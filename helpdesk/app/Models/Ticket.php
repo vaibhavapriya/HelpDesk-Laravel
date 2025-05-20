@@ -15,7 +15,7 @@ class Ticket extends Model
         'status', 'department', 'requester_id', 'last_reply', 'last_replier',
     ];
     //also can be done by 
-    //protected $protected=[];
+    //protected $protected=[];protected $guarded = [];
     
 
     // public function user()
@@ -25,5 +25,9 @@ class Ticket extends Model
     public function requester()
     {
         return $this->belongsTo(User::class, 'requester_id');
+    }
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
     }
 }

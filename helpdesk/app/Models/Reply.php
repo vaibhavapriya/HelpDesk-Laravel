@@ -9,4 +9,9 @@ class Reply extends Model
 {
     /** @use HasFactory<\Database\Factories\ReplyFactory> */
     use HasFactory;
+
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }
