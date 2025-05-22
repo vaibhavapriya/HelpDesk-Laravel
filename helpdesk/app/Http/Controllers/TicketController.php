@@ -15,7 +15,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::with('requester')->get(); // eager load the requester
+        $tickets = Ticket::with('requester')-> paginate(5); // ->get() eager load the requester
+        //dd(Ticket::with('requester')-> paginate(5));
         return view('ticket.indexTicket', compact('tickets'));
     }
 

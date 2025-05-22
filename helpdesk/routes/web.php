@@ -20,4 +20,6 @@ Route::resource('tickets',TicketController::class);
 //     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 // });
 
+//Route::get('/admin',[Controller::class,method])->middleware(role:admin);
+
 require __DIR__.'/auth.php';

@@ -13,3 +13,9 @@ https://bbbootstrap.com/snippets/bootstrap-doctors-appointment-form-30336544
 
 <!-- forgot password -->
 https://bootsnipp.com/snippets/XqM6W
+
+<!-- table -->
+https://examples.bootstrap-table.com/
+
+<!-- ref -->
+https://www.tutorialspoint.com/laravel/laravel_cookie.htm
